@@ -1,12 +1,10 @@
 
 
-import React from 'react'
-
-function AuthButton() {
+function AuthButton({ onClickHandler }: { onClickHandler: () => void }) {
   return (
-    <div>
-
-    </div>
+    <button onClick={onClickHandler} className="bg-primaryColor hover:bg-blue-700 text-white text-[16px] leading-5 font-bold py-4 px-4 rounded-[16px]">
+      Sign up
+    </button>
   )
 }
 
