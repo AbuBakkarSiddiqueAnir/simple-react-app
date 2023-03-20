@@ -52,7 +52,8 @@ const PasswordStrength = ({ password }: password) => {
             new Array(6).fill(0).map((_, i) => {
               return (
                 <div
-                  style={{ background: `${checkBackground(i) ? '#38CB89' : ''}` }}
+                  key={i}
+                  style={{ background: `${checkBackground(i) && '#38CB89' }` }}
                   className={` bg-[#F3F3F3] h-1 flex-1  rounded-[2px]`}></div>
               )
             })

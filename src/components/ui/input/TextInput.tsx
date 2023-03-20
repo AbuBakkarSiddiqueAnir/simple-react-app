@@ -7,7 +7,7 @@ interface Props {
   icon: string;
   onChange: (value: string) => void;
   placeHolder: string;
-  validator:(value: string) => boolean
+  validator?:(value: string) => boolean
 }
 
 const Input: React.FC<Props> = ({ icon, placeHolder, onChange, validator }) => {
