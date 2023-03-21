@@ -1,27 +1,46 @@
 
-import React, { useState } from 'react'
+import { useState,useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { Apple, Email, Google, Name, Password } from '../assets'
 import { Divider, TextInput, OauthButton, PasswordInput, AuthButton } from '../components'
 import PasswordStrength from '../components/ui/passwordStrength/StrengthMeter';
-import { API_URL } from '../lib/constants';
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import emailValidator from './../util/emailValidate';
+import { signUp } from './../redux/slice/AuthSlice';
+import { useNavigate } from 'react-router-dom';
 
 
 
 function SignUp() {
-  const [isChecked, setIsChecked] = useState(false);
-  const [password, setPassword] = useState('');
-  const [email,setEmail] = useState('')
-  const [name, setName] = useState('')
+  const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [password, setPassword] = useState<string>('');
+  const [email,setEmail] = useState<string>('');
+  const [isEmailValid, setIsEmailValid] = useState<boolean>(false)
+
+  const [name, setName] = useState<string>('')
+
+  const router =  useNavigate()
+
+  const dispatch = useAppDispatch();
+
+
+  const { token, isLoading, error } = useAppSelector((state) => state.auth);
+
+
 
   const handleCheck = () => {
     setIsChecked(!isChecked);
   };
 
-  const handlerInputChange = (value: string) => {
-    setPassword(value)
+  const handleEmail = (value:string, isValid:boolean) => {
+    setEmail(value);
+    setIsEmailValid(isValid)
   }
+
+  const handleName = (value:string, isValid?:boolean) => {
+    setName(value)
+  }
+
 
 
   const handleSignUp = async () => {
@@ -31,6 +50,16 @@ function SignUp() {
       return
     }
 
+    if(!isEmailValid) {
+      alert('Enter a valid email')
+      return
+    }
+
+    let data = {
+      email:'janet.weaver@reqres.in',password
+    }
+
+    dispatch(signUp(data))
 
   }
 
@@ -46,10 +75,10 @@ function SignUp() {
         </div>
         <Divider />
         <div className='mb-10'>
-          <TextInput placeHolder='Your Email' icon={Email} onChange={setEmail} validator={emailValidator} />
+          <TextInput placeHolder='Your Email' icon={Email} onChange={handleEmail} validator={emailValidator} />
         </div>
         <div className='mb-7'>
-          <TextInput placeHolder='Your Name' icon={Name} onChange={setName} />
+          <TextInput placeHolder='Your Name' icon={Name} onChange={handleName} />
         </div>
         <div className='mb-8'>
           <PasswordInput placeHolder='Create Password' icon={Password} onChange={setPassword} />
@@ -65,7 +94,7 @@ function SignUp() {
               checked={isChecked}
               onChange={handleCheck}
             />
-            <span className="ml-2">
+            <span className="ml-2 font-medium text-center text-[16px] leading-5 text-textColor-third">
               I accept the
               <a href="#" className="text-blue-500 ml-1 hover:underline">
                 terms and conditions

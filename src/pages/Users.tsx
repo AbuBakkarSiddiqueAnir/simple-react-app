@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import { Pagination, Table } from '../components'
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
-import { fetchUserList } from '../redux/slice/UserList';
+import { fetchUserList } from '../redux/slice/UserListSlice';
 
 function Users() {
   const dispatch = useAppDispatch();

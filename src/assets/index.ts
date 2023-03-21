@@ -16,3 +16,4 @@ export {default as Options } from './images/options.svg'
 
 export {default as Left } from './images/left.svg'
 export {default as Right } from './images/right.svg'
+export {default as thumbnail } from './images/user_thumb.png'

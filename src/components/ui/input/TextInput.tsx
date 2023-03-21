@@ -4,22 +4,22 @@ import { useState } from 'react';
 
 interface Props {
   icon: string;
-  onChange: (value: string) => void;
+  onChange: (value: string, isValid:boolean) => void;
   placeHolder: string;
   validator?:(value: string) => boolean
 }
 
 const Input: React.FC<Props> = ({ icon, placeHolder, onChange, validator }) => {
 
-  const [isValid, setIsValid] = useState(true);
-  const [inputValue, setInputValue] = useState('')
+  const [isValid, setIsValid] = useState<boolean>(true);
+  const [inputValue, setInputValue] = useState<string>('')
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
     if(validator) {
       setIsValid(validator(event.target.value));
     }
-    onChange(event.target.value)
+    onChange(event.target.value, isValid)
   };
 
 

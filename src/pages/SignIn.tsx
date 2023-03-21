@@ -4,24 +4,49 @@ import { Link } from 'react-router-dom';
 import { Apple, Email, Google, Name, Password } from '../assets'
 import { Divider, TextInput, OauthButton, PasswordInput, AuthButton } from '../components'
 import emailValidator from './../util/emailValidate';
+import { useNavigate } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from './../redux/hooks';
+import { signIn } from '../redux/slice/AuthSlice';
 
 
 
 function SignIn() {
-  const [isChecked, setIsChecked] = useState(false);
-  const [password, setPassword] = useState('')
+  const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [password, setPassword] = useState<string>('');
+  const [email,setEmail] = useState<string>('');
+  const [isEmailValid, setIsEmailValid] = useState<boolean>(false)
+
+  const { token, isLoading, error } = useAppSelector((state) => state.auth);
+
+
+  const router =  useNavigate()
+
+  const dispatch = useAppDispatch();
 
   const handleCheck = () => {
     setIsChecked(!isChecked);
   };
 
-  const handlerInputChange = (value: string) => {
-    setPassword(value)
+  const handleEmailChange = (value:string, isValid:boolean) => {
+    setEmail(value);
+    console.log(isValid)
+    setIsEmailValid(isValid)
   }
 
 
-  const handleSignUp = () => {
+  const handleSignIn = () => {
+    if(!isEmailValid) {
+      alert('Enter a valid email')
+      return
+    }
 
+    let data = {
+      email:'janet.weaver@reqres.in',password
+    }
+
+    dispatch(signIn(data))
+
+    if(token) router('/users')
   }
 
 
@@ -36,10 +61,10 @@ function SignIn() {
         </div>
         <Divider />
         <div className='mb-10'>
-          <TextInput placeHolder='Your Email' icon={Email} onChange={handlerInputChange} validator={emailValidator} />
+          <TextInput placeHolder='Enter Email' icon={Email} onChange={handleEmailChange} validator={emailValidator} />
         </div>
         <div className='mb-8'>
-          <PasswordInput placeHolder='Create Password' icon={Password} onChange={handlerInputChange} />
+          <PasswordInput placeHolder='Enter Password' icon={Password} onChange={setPassword} />
         </div>
 
         <div className="mb-8">
@@ -51,13 +76,13 @@ function SignIn() {
               checked={isChecked}
               onChange={handleCheck}
             />
-            <span className="ml-2">
+            <span className="ml-2 font-medium  text-center text-[16px] leading-5 text-textColor-third">
               Remember Me
             </span>
           </label>
         </div>
 
-        <AuthButton label='Sign In' onClickHandler={handleSignUp} />
+        <AuthButton label='Sign In' onClickHandler={handleSignIn} />
 
         <div className='font-medium mt-8 text-center text-[16px] leading-5 text-textColor-third '>
           Don’t have an account yet? <Link to="/signup" className='text-primaryColor'>Sign Up</Link>
