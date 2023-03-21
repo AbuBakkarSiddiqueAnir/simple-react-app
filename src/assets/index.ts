@@ -13,3 +13,6 @@ export {default as Invoice } from './images/invoice.svg'
 export {default as Notification } from './images/notification.svg'
 export {default as SearchIcon } from './images/search.svg'
 export {default as Options } from './images/options.svg'
+
+export {default as Left } from './images/left.svg'
+export {default as Right } from './images/right.svg'
