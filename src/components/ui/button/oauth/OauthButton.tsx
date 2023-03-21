@@ -1,6 +1,7 @@
-import React from "react";
 
-function OauthButton({ onClickHandler, icon, label }) {
+import { OAuthButtonType } from "../../../../types/types";
+
+function OauthButton({ onClickHandler, icon, label }:OAuthButtonType) {
   return (
 
       <button

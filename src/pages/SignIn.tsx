@@ -1,6 +1,7 @@
 
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom';
+
 import { Apple, Email, Google, Name, Password } from '../assets'
 import { Divider, TextInput, OauthButton, PasswordInput, AuthButton } from '../components'
 import emailValidator from './../util/emailValidate';
@@ -13,40 +14,38 @@ import { signIn } from '../redux/slice/AuthSlice';
 function SignIn() {
   const [isChecked, setIsChecked] = useState<boolean>(false);
   const [password, setPassword] = useState<string>('');
-  const [email,setEmail] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
   const [isEmailValid, setIsEmailValid] = useState<boolean>(false)
 
-  const { token, isLoading, error } = useAppSelector((state) => state.auth);
-
-
-  const router =  useNavigate()
-
+  const router = useNavigate()
   const dispatch = useAppDispatch();
+
+  const { token } = useAppSelector((state) => state.auth);
 
   const handleCheck = () => {
     setIsChecked(!isChecked);
   };
 
-  const handleEmailChange = (value:string, isValid:boolean) => {
+  const handleEmailChange = (value: string, isValid: boolean) => {
     setEmail(value);
     console.log(isValid)
     setIsEmailValid(isValid)
   }
 
-
   const handleSignIn = () => {
-    if(!isEmailValid) {
+
+    if (!isEmailValid) {
       alert('Enter a valid email')
       return
     }
 
     let data = {
-      email:'janet.weaver@reqres.in',password
+      email: 'janet.weaver@reqres.in', password
     }
 
     dispatch(signIn(data))
 
-    if(token) router('/users')
+    if (token) router('/users')
   }
 
 

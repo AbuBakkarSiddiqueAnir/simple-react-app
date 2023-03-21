@@ -8,11 +8,7 @@ import { useAppDispatch } from '../../redux/hooks';
 import { logout } from '../../redux/slice/AuthSlice';
 
 
-interface Props {
-  searchPlaceholder: string;
-}
-
-const Navbar: React.FC<Props> = ({ searchPlaceholder }) => {
+const Navbar = () => {
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const router =  useNavigate()
@@ -43,7 +39,7 @@ const Navbar: React.FC<Props> = ({ searchPlaceholder }) => {
             src={thumbnail}
             alt="User"
             className="rounded-full w-12 h-12 cursor-pointer"
-            placeholder={searchPlaceholder}
+            placeholder="Search"
             onClick={handleDropdown}
           />
           {

@@ -1,15 +1,9 @@
 
 import { useState } from 'react';
+import { TextInputPropsTypes } from '../../../types/interfaces';
 
 
-interface Props {
-  icon: string;
-  onChange: (value: string, isValid:boolean) => void;
-  placeHolder: string;
-  validator?:(value: string) => boolean
-}
-
-const Input: React.FC<Props> = ({ icon, placeHolder, onChange, validator }) => {
+const Input: React.FC<TextInputPropsTypes> = ({ icon, placeHolder, onChange, validator }) => {
 
   const [isValid, setIsValid] = useState<boolean>(true);
   const [inputValue, setInputValue] = useState<string>('')

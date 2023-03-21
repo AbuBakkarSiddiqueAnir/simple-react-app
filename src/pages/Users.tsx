@@ -22,7 +22,7 @@ function Users() {
   }
 
   useEffect(() => {
-    if (data.length < 1) dispatch(fetchUserList(1));
+    if (data?.length < 1) dispatch(fetchUserList(1));
     setCurrentPage(data?.page)
   }, [data]);
 

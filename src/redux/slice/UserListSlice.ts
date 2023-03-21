@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { API_URL } from '../../lib/constants';
+import { ReceivedUsersDataType } from '../../types/types';
 
 
 export const fetchUserList = createAsyncThunk('userList/fetchUserList', async (page: number = 1) => {
@@ -9,9 +10,15 @@ export const fetchUserList = createAsyncThunk('userList/fetchUserList', async (p
   return data;
 });
 
+type initialStateType = {
+  data: ReceivedUsersDataType | [],
+  isLoading: boolean,
+  error: null ,
+  message:string
+}
 
-const initialState = {
-  data: [],
+const initialState: initialStateType = {
+  data: [] ,
   isLoading: false,
   error: null,
   message:''

@@ -1,16 +1,9 @@
 
 import { useState, useEffect } from 'react';
-import PasswordStrength from '../passwordStrength/StrengthMeter';
+import { PasswordInputPropsTypes } from './../../../types/interfaces';
 
 
-
-interface Props {
-  icon: string;
-  onChange: (value: string) => void;
-  placeHolder: string;
-}
-
-const Input: React.FC<Props> = ({ icon, onChange, placeHolder }) => {
+const Input: React.FC<PasswordInputPropsTypes> = ({ icon, onChange, placeHolder }) => {
   const [showPassword, setShowPassword] = useState(true);
   const [password, setPassword] = useState('');
 

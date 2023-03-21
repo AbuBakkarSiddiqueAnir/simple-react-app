@@ -1,13 +1,7 @@
+import { PasswordStrengthType } from "../../../types/types";
 
 
-type PasswordStrengthType = {
-  password: string
-  // setter:(strength:number) => void
-}
-
-
-const PasswordStrength = ({ password }: PasswordStrengthType) => {
-
+const PasswordStrength:React.FC<PasswordStrengthType> = ({ password }) => {
 
   const calculatePasswordStrength = (password: string) => {
     let score = 0;

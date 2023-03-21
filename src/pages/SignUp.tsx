@@ -1,6 +1,7 @@
 
 import { useState,useEffect } from 'react'
 import { Link } from 'react-router-dom';
+
 import { Apple, Email, Google, Name, Password } from '../assets'
 import { Divider, TextInput, OauthButton, PasswordInput, AuthButton } from '../components'
 import PasswordStrength from '../components/ui/passwordStrength/StrengthMeter';
@@ -60,6 +61,8 @@ function SignUp() {
     }
 
     dispatch(signUp(data))
+
+    if(token) router('/signin')
 
   }
 

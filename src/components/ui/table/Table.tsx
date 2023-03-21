@@ -1,15 +1,6 @@
 import { FC } from 'react';
 import { Options } from '../../../assets';
-
-type TableProps = {
-  data: Array<{
-    id: number;
-    email: string;
-    first_name: string;
-    last_name:string;
-    options: {};
-  }>;
-};
+import { TableProps } from '../../../types/types';
 
 
 const Table: FC<TableProps> = ({ data }) => {

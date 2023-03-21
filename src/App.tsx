@@ -1,14 +1,15 @@
 
-import './App.css'
 import { Dashboard, SignIn, SignUp } from './pages';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
 import AppLayout from './components/layout/AppLayout';
 import Users from './pages/Users';
 import Sales from './pages/Sales';
 import AuthLayout from './components/layout/AuthLayout';
 
-function App() {
+import './App.css'
 
+function App() {
   return (
       <Router>
         <Routes>

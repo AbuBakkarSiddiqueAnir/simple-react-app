@@ -1,11 +1,7 @@
 import React, { useEffect,useState } from 'react';
 import { Left, Right } from '../../../assets';
+import { PaginationProps } from './../../../types/interfaces';
 
-type PaginationProps = {
-    currentPage: number;
-    totalPages: number;
-    onPageChange: (page: number) => void;
-};
 
 const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
 

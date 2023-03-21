@@ -1,15 +1,8 @@
 
-import { ReactNode } from 'react';
 import {Menu, User, Invoice} from '../assets'
+import { SIDEBAR_LINKS_TYPE } from '../types/types'
 
-export type LINK_TYPE= {
-    key: string;
-    label: string;
-    path: string;
-    icon: string ;
-}
 
-type SIDEBAR_LINKS_TYPE = LINK_TYPE[]
 
 export const SIDEBAR_LINKS:SIDEBAR_LINKS_TYPE = [
 	{

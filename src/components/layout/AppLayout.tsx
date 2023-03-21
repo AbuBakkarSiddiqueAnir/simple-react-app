@@ -1,6 +1,7 @@
 
 import { useEffect } from 'react'
 import { Outlet } from 'react-router-dom';
+
 import { useAppSelector } from '../../redux/hooks';
 import Navbar from '../navbar/Navbar';
 import SideBar from './../sidebar/SideBar';
