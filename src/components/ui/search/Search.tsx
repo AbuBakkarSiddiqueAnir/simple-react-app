@@ -1,15 +1,15 @@
+import { SearchIcon } from "../../../assets"
 
-
-import React from 'react'
 
 function Search() {
   return (
-    <div>
- <input
+    <div className="relative w-[539px] bg-[#F0F5FA] rounded-2xl">
+      <input
         type="text"
         placeholder="Search"
-        className="p-2 rounded-md w-full  text-white placeholder-gray-400 focus:outline-none focus:ring focus:border-blue-300"
+        className="pl-6 py-4  rounded-2xl w-full  bg-[#F0F5FA] text-[#434446] placeholder-[#B0B7C3] focus:outline-none  focus:border-blue-300"
       />
+      <img src={SearchIcon} className="absolute right-5 cursor-pointer top-[18px] " alt="search icon" />
     </div>
   )
 }
