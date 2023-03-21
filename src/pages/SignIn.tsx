@@ -1,12 +1,13 @@
 
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import { Apple, Email, Google, Name, Password } from '../assets'
 import { Divider, TextInput, OauthButton, PasswordInput, AuthButton } from '../components'
 import emailValidator from './../util/emailValidate';
 
 
 
-function SignUp() {
+function SignIn() {
   const [isChecked, setIsChecked] = useState(false);
   const [password, setPassword] = useState('')
 
@@ -25,11 +26,11 @@ function SignUp() {
 
 
   return (
-    <section className='container mx-auto flex justify-center  h-auto py-28'>
+    <section className='container mx-auto flex justify-center  h-auto py-28 px-6'>
       <div className='flex flex-col '>
         <h3 className='font-bold text-center pb-5 text-[26px] leading-[31px] text-heading-001'>Getting Started</h3>
         <p className='text-lg text-center pb-8 leading-[22px] font-medium text-textColor-first'>Create an account to continue!</p>
-        <div className='flex gap-7'>
+        <div className='flex gap-7 flex-col md:flex-row'>
           <OauthButton icon={Google} label='Sign Up with Google' onClickHandler={() => { }} />
           <OauthButton icon={Apple} label='Sign Up with Apple ID' onClickHandler={() => { }} />
         </div>
@@ -59,7 +60,7 @@ function SignUp() {
         <AuthButton label='Sign In' onClickHandler={handleSignUp} />
 
         <div className='font-medium mt-8 text-center text-[16px] leading-5 text-textColor-third '>
-          Don’t have an account yet? <a href="" className='text-primaryColor'>Sign Up</a>
+          Don’t have an account yet? <Link to="/signup" className='text-primaryColor'>Sign Up</Link>
         </div>
 
       </div>
@@ -67,4 +68,4 @@ function SignUp() {
   )
 }
 
-export default SignUp
+export default SignIn

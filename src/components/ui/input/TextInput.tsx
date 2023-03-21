@@ -1,6 +1,5 @@
 
 import { useState } from 'react';
-import emailValidator from './../../../util/emailValidate';
 
 
 interface Props {
