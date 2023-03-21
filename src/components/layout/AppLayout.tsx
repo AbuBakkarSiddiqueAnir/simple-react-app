@@ -22,7 +22,7 @@ function AppLayout() {
 		<div className="bg-[#fff] h-screen w-screen overflow-hidden flex flex-row">
 			<SideBar />
 			<div className="flex flex-col flex-1">
-				<Navbar searchPlaceholder='' />
+				<Navbar />
 				<div className="flex-1 p-4 min-h-0 overflow-auto">
 					<Outlet />
 				</div>

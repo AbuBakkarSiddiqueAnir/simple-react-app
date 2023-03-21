@@ -4,7 +4,8 @@ import classNames from 'classnames'
 import { Link, useLocation } from 'react-router-dom'
 
 import { Logo } from '../../assets'
-import { LINK_TYPE, SIDEBAR_LINKS } from '../../lib/constants'
+import { SIDEBAR_LINKS } from '../../lib/constants'
+import { LINK_TYPE } from '../../types/types'
 
 
 function SideBar() {
