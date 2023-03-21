@@ -7,7 +7,7 @@ import { fetchUserList } from '../redux/slice/UserListSlice';
 
 function Users() {
   const dispatch = useAppDispatch();
-  const { data, isLoading, error } = useAppSelector((state) => state.userList);
+  const { data } = useAppSelector((state) => state.userList);
   const [currentPage, setCurrentPage] = useState(1);
   const [MorePage, setMorePage] = useState(false)
 
@@ -22,8 +22,10 @@ function Users() {
   }
 
   useEffect(() => {
-    if (data?.length < 1) dispatch(fetchUserList(1));
+
+    if (data.length < 1) dispatch(fetchUserList(1));
     setCurrentPage(data?.page)
+
   }, [data]);
 
   return (

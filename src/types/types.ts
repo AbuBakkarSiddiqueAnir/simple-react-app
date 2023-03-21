@@ -16,10 +16,11 @@ export type authPostDataType = {
   }
 
   export type ReceivedUsersDataType = {
+    length: number
     page: number,
     per_page: number,
     total: number,
-    total_pages?: number,
+    total_pages: number,
     data : UsersType[]
   }
 
@@ -48,13 +49,7 @@ export type PasswordStrengthType = {
 
 
   export interface TableProps {
-    data: Array<{
-      id: number;
-      email: string;
-      first_name: string;
-      last_name:string;
-      options: {};
-    }>;
+    data: UsersType[];
   };
 
 

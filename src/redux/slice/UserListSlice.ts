@@ -11,14 +11,21 @@ export const fetchUserList = createAsyncThunk('userList/fetchUserList', async (p
 });
 
 type initialStateType = {
-  data: ReceivedUsersDataType | [],
+  data: ReceivedUsersDataType ,
   isLoading: boolean,
   error: null ,
   message:string
 }
 
 const initialState: initialStateType = {
-  data: [] ,
+  data: {
+    length: 0,
+    page: 0,
+    per_page: 0,
+    total: 0,
+    total_pages: 0,
+    data:[]
+  } ,
   isLoading: false,
   error: null,
   message:''
@@ -33,6 +40,7 @@ const userListSlice = createSlice({
       state.isLoading = true;
     },
     [fetchUserList.fulfilled.type]: (state, { payload }) => {
+      console.log(payload)
       state.isLoading = false;
       state.data = payload;
 
