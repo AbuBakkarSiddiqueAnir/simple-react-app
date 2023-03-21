@@ -34,10 +34,8 @@ This project uses the ReqRes.in API for user authentication and user list data. 
 - react
 - react-dom
 - react-router-dom
-
 - react-redux
 - @reduxjs/toolkit
-- axios
 - tailwindcss
 
 ## Contributors
