@@ -32,3 +32,6 @@ export const SIDEBAR_LINKS:SIDEBAR_LINKS_TYPE = [
 		icon: Invoice
 	}
 ]
+
+
+export const API_URL = 'https://reqres.in'

@@ -5,8 +5,9 @@ type TableProps = {
   data: Array<{
     id: number;
     email: string;
-    user: string;
-    options: string;
+    first_name: string;
+    last_name:string;
+    options: {};
   }>;
 };
 
@@ -35,11 +36,11 @@ const Table: FC<TableProps> = ({ data }) => {
                 </tr>
               </thead>
               <tbody className="bg-white ">
-                {data.map((item) => (
-                  <tr key={item.id}>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{item.id}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-[#4E5D78]">{item.email}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-[#4E5D78]">{item.user}</td>
+                {data?.map((user) => (
+                  <tr key={user.id}>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{user.id}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-[#4E5D78]">{user.email}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-[#4E5D78]">{user.first_name +" "+ user.last_name}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-[#4E5D78]">
                         <img className='ml-4 cursor-pointer' src={Options} alt="" />
                     </td>
