@@ -8,7 +8,7 @@ https://simple-react-app-chi.vercel.app/signin
 
 ## Screenshots
 
-Include screenshots of the app here.
+<img src="./src/assets/stack.png" alt="Stack image">
 
 ## Installation
 
@@ -34,7 +34,7 @@ This project uses the ReqRes.in API for user authentication and user list data. 
 - react
 - react-dom
 - react-router-dom
-- redux
+
 - react-redux
 - @reduxjs/toolkit
 - axios
