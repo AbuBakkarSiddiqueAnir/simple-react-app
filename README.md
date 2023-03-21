@@ -2,6 +2,10 @@
 
 This project is a React application that uses Tailwind CSS for styling and Redux Toolkit for state management. It includes four pages: sign in, sign up, users, and a blank dashboard page. The app also includes an authentication system that integrates with an API and private routes that restrict access to authenticated users. The user list API is integrated with pagination to display a list of users on the users page.
 
+## Live Link
+
+https://simple-react-app-chi.vercel.app/signin
+
 ## Screenshots
 
 Include screenshots of the app here.
