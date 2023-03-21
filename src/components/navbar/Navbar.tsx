@@ -12,9 +12,7 @@ const Navbar = () => {
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const router =  useNavigate()
-
   const dispatch = useAppDispatch();
-
 
   const handleDropdown = () => {
     setDropdownOpen(!dropdownOpen)

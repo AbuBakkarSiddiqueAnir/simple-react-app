@@ -6,10 +6,9 @@ function OauthButton({ onClickHandler, icon, label }:OAuthButtonType) {
 
       <button
         onClick={onClickHandler}
-        className="px-6 py-4 bg-secondaryColor text-textColor-first text-[16px] leading-[19px]  rounded-[16px]  flex items-center"
+        className="px-6 py-4 bg-secondaryColor hover:bg-slate-200 text-textColor-first text-[16px] leading-[19px]  rounded-[16px]  flex items-center"
       >
         <img src={icon} className="mr-2" />
-
         {label}
       </button>
 
